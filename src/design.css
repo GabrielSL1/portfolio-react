@@ -36,8 +36,11 @@ button { font:inherit; cursor:pointer; }
 .hero h1 .typewriter-word { display:inline-grid; vertical-align:baseline; }
 .hero h1 .typewriter-reserve,.hero h1 .typewriter-output { grid-area:1 / 1; }
 .hero h1 .typewriter-reserve { opacity:0; }
-.hero h1 .typewriter-output { position:relative; justify-self:start; }
-.typewriter-output.is-current::after { content:""; position:absolute; left:100%; top:.12em; bottom:.06em; width:2px; background:var(--led); }
+/* Tight tracking lets glyphs extend beyond their advance width. Keep the gradient
+   wide enough to paint them; negative margins preserve wrapping and alignment. */
+.hero h1 .typewriter-output { position:relative; justify-self:start; padding-inline:.08em; margin-inline:-.08em; }
+.hero h1 .hero-typewriter:not(.is-typing) { padding-inline:.08em; margin-inline:-.08em; -webkit-box-decoration-break:clone; box-decoration-break:clone; }
+.typewriter-output.is-current::after { content:""; position:absolute; left:calc(100% - .08em); top:.12em; bottom:.06em; width:2px; background:var(--led); }
 .hero-copy>p { max-width:54ch; margin:0 0 2rem; color:var(--muted); font-size:1.0625rem; line-height:1.7; }
 .btns { display:flex; flex-wrap:wrap; gap:.8rem; }
 .btn { justify-content:center; padding:.8rem 1.1rem; border:1px solid #4779aa; border-radius:.5rem; font-size:.9375rem; font-weight:650; }
