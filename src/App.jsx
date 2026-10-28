@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { portfolioMarkup } from './portfolio-content';
 import { setupPortfolioInteractions } from './portfolio-interactions';
+import { setupHeroTypewriter } from './hero-typewriter';
 import './design.css';
 import './App.css';
 
@@ -8,6 +9,7 @@ export default function App() {
   const contentRef = useRef(null);
 
   useEffect(() => setupPortfolioInteractions(contentRef.current), []);
+  useEffect(() => setupHeroTypewriter(contentRef.current), []);
 
   useEffect(() => {
     const root = contentRef.current;

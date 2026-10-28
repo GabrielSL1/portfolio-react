@@ -15,7 +15,7 @@ export const portfolioMarkup = `<div class="led-progress" aria-hidden="true"></d
     <section class="hero hero-modern" aria-labelledby="hero-title">
       <div class="hero-copy">
         <div class="eyebrow"><span class="status-dot"></span> Desenvolvedor Full Stack</div>
-        <h1 id="hero-title">Desenvolvo <span>sistemas web</span> completos.</h1>
+        <h1 id="hero-title">Desenvolvo <span class="hero-typewriter" data-typewriter>sistemas web</span> completos.</h1>
         <p>Sou Gabriel, desenvolvedor full stack em Santa Rita do Sapucaí, MG. Vim da eletrônica e hoje construo aplicações do banco de dados até a tela.</p>
         <div class="btns">
           <a class="btn primary" href="#projetos"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 9h18M8 5V3h8v2"/></svg>Ver projetos</a>
@@ -50,6 +50,10 @@ export const portfolioMarkup = `<div class="led-progress" aria-hidden="true"></d
           </div>
         </article>
       </div>
+      <figure class="project-source">
+        <img src="${import.meta.env?.BASE_URL ?? './'}images/flowpdf-source.png" width="1440" height="1000" loading="lazy" decoding="async" alt="Página do repositório público GabrielSL1/FlowPDF no GitHub"/>
+        <figcaption>Repositório público do FlowPDF no GitHub</figcaption>
+      </figure>
     </section>
 
     <section id="habilidades" class="skills-section" aria-labelledby="skills-title">

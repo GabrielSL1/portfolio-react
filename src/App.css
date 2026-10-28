@@ -67,6 +67,5 @@ body::before { content:""; position:fixed; inset:0; z-index:-1; pointer-events:n
   html { scroll-behavior:auto; }
   *,*::before,*::after { animation:none!important; transition:none!important; }
   .js-motion .reveal { opacity:1; transform:none; }
-  .js-motion .skills-carousel .skill-group:hover { transform:none; }
   .btn:hover,.project-card:hover,.js-motion .project-card.is-visible:hover,.skill-group:hover,.skill-group:focus-within,.js-motion .skill-group.is-visible:hover,.tags li:hover,.skill-pills li:hover,.links a:hover,.footer-links a:hover,.project-card:hover .flow-logo,.about-photo-wrap:hover .about-monogram { transform:none; }
 }

@@ -32,6 +32,12 @@ button { font:inherit; cursor:pointer; }
 .eyebrow { display:flex; align-items:center; gap:.65rem; color:var(--muted); font-size:.9375rem; margin-bottom:1.5rem; }
 .hero h1 { font:750 clamp(2rem,4.6vw,4.1rem)/1.06 var(--display); letter-spacing:-.045em; margin:0 0 1.75rem; text-wrap:balance; }
 .hero h1 span { background:linear-gradient(100deg,#15d6f4,#2585ff 45%,#b34aff); background-clip:text; -webkit-background-clip:text; color:transparent; }
+.hero h1 .hero-typewriter.is-typing,.hero h1 .typewriter-word,.hero h1 .typewriter-reserve { background:none; color:inherit; }
+.hero h1 .typewriter-word { display:inline-grid; vertical-align:baseline; }
+.hero h1 .typewriter-reserve,.hero h1 .typewriter-output { grid-area:1 / 1; }
+.hero h1 .typewriter-reserve { opacity:0; }
+.hero h1 .typewriter-output { position:relative; justify-self:start; }
+.typewriter-output.is-current::after { content:""; position:absolute; left:100%; top:.12em; bottom:.06em; width:2px; background:var(--led); }
 .hero-copy>p { max-width:54ch; margin:0 0 2rem; color:var(--muted); font-size:1.0625rem; line-height:1.7; }
 .btns { display:flex; flex-wrap:wrap; gap:.8rem; }
 .btn { justify-content:center; padding:.8rem 1.1rem; border:1px solid #4779aa; border-radius:.5rem; font-size:.9375rem; font-weight:650; }
@@ -91,23 +97,17 @@ h2 { font:700 clamp(1.8rem,3.4vw,2.75rem)/1.15 var(--display); letter-spacing:-.
 .links { display:flex; flex-wrap:wrap; gap:.5rem 1.5rem; }
 .links a { color:var(--led); font-weight:600; text-decoration:underline; }
 .project-card:focus-within { outline:2px solid var(--led); outline-offset:5px; }
+.project-source { margin:2rem 0 0; }
+.project-source img { display:block; width:100%; height:auto; background:#0d1117; }
+.project-source figcaption { margin-top:.75rem; color:var(--muted); font-size:.9375rem; }
 .skills-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.25rem; }
-.skills-controls { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-top:-1rem; margin-bottom:.75rem; color:var(--muted); }
-.skills-position { font-size:.9375rem; font-variant-numeric:tabular-nums; }
-.skills-buttons { display:flex; gap:.5rem; }
-.carousel-button,.menu-toggle { min-width:44px; min-height:44px; align-items:center; justify-content:center; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:.5rem; transition:background .2s,border-color .2s,box-shadow .2s; }
-.carousel-button { display:inline-flex; font-size:1.4rem; }
-.carousel-button:hover:enabled,.menu-toggle:hover { border-color:var(--led); background:var(--copper-soft); box-shadow:0 0 16px rgba(56,217,255,.16); }
-.carousel-button:disabled { opacity:.35; cursor:default; }
-.skills-grid.skills-carousel { display:flex; gap:1.25rem; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scroll-padding-inline:.5rem; scrollbar-width:thin; scrollbar-color:var(--line) var(--bg); padding:1rem .5rem 1.5rem; }
-.skills-carousel .skill-group { flex:0 0 calc((100% - 1.25rem)/2); scroll-snap-align:start; scroll-snap-stop:always; }
-/* All slide content remains readable even before a slide has entered the screen. */
-.js-motion .skills-carousel .reveal { opacity:1; transform:none; }
-.js-motion .skills-carousel .skill-group:hover { transform:translateY(-6px); }
-.skill-group { position:relative; isolation:isolate; padding:1.5rem; min-width:0; border:1px solid var(--line); border-radius:.8rem; background:var(--surface); }
-.skill-group h3 { display:flex; align-items:center; gap:.75rem; font-size:1.0625rem; margin:0 0 1.25rem; }
-.skill-symbol { display:inline-flex; align-items:center; justify-content:center; flex:0 0 2rem; width:2rem; height:2rem; color:var(--led); }
-.skill-pills li { max-width:100%; overflow-wrap:anywhere; }
+.menu-toggle { min-width:44px; min-height:44px; align-items:center; justify-content:center; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:.5rem; transition:background .2s,border-color .2s,box-shadow .2s; }
+.menu-toggle:hover { border-color:var(--led); background:var(--copper-soft); box-shadow:0 0 16px rgba(56,217,255,.16); }
+.skills-intro { max-width:none; margin-bottom:1.25rem; }
+.skill-group { position:relative; isolation:isolate; padding:1.25rem; min-width:0; border:1px solid rgba(65,123,197,.36); border-radius:.9rem; background:rgba(10,21,40,.85); }
+.skill-group h3 { display:flex; align-items:center; gap:.75rem; font-size:1.05rem; margin:0 0 1rem; }
+.skill-symbol { display:inline-flex; align-items:center; justify-content:center; flex:0 0 2.25rem; width:2.25rem; height:2.25rem; color:var(--led); border:1px solid rgba(56,217,255,.28); border-radius:.65rem; background:rgba(38,120,255,.1); }
+.skill-pills li { max-width:100%; padding:.35rem .65rem; font-size:1rem; border-color:rgba(44,123,202,.38); background:rgba(18,43,73,.9); color:#d5e9ff; overflow-wrap:anywhere; }
 .about { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); align-items:start; gap:clamp(2rem,6vw,6rem); }
 .about-photo-wrap { position:relative; border-radius:1rem; overflow:hidden; border:1px solid rgba(56,217,255,.5); background:var(--surface); box-shadow:0 0 28px rgba(38,120,255,.12); }
 .about-monogram { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1.5rem; aspect-ratio:1; padding:1.5rem; background:linear-gradient(145deg,#101e35,#172d49); font:800 clamp(5rem,10vw,8rem)/1 var(--display); letter-spacing:-.08em; }
@@ -143,7 +143,6 @@ footer { display:flex; justify-content:space-between; align-items:center; flex-w
   .flow-logo { max-height:100%; width:auto; max-width:85%; }
   .project-card-body { padding:1.5rem; }
   .skills-grid { grid-template-columns:minmax(0,1fr); }
-  .skills-carousel .skill-group { flex-basis:100%; }
   .skill-group { padding:1.25rem; }
   .about { grid-template-columns:minmax(0,1fr); }
   .about-photo-wrap { width:min(100%,20rem); }
