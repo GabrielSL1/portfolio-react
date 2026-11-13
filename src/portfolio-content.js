@@ -22,7 +22,17 @@ export const portfolioMarkup = `<div class="led-progress" aria-hidden="true"></d
         </div>
       </div>
       <div class="hero-visual" aria-label="Ilustração animada de um ambiente de desenvolvimento" role="img">
-        <div class="float-card terminal-card"><div class="terminal-head"><span></span><span></span><span></span><b>gabriel.dev</b></div><div class="terminal-content"><code><em>const</em> developer = {</code><code class="indent">name: <strong>'Gabriel Lima'</strong>,</code><code class="indent">stack: <strong>'Full Stack'</strong>,</code><code class="indent">passion: <strong>'Build & create'</strong></code><code>};</code><div class="terminal-cursor"></div></div></div>
+        <div class="float-card terminal-card">
+          <div class="terminal-head"><span></span><span></span><span></span><b>gabriel.dev</b></div>
+          <div class="terminal-content">
+            <code><em>const</em> <span class="terminal-variable">developer</span> = {</code>
+            <code class="indent"><span class="terminal-property">name</span>: <strong>'Gabriel Lima'</strong>,</code>
+            <code class="indent"><span class="terminal-property">stack</span>: <strong>'Full Stack'</strong>,</code>
+            <code class="indent"><span class="terminal-property">passion</span>: <strong>'Build & create'</strong></code>
+            <code>};</code>
+            <div class="terminal-cursor"></div>
+          </div>
+        </div>
         <div class="hero-stack">
           <div class="tech-card react-card"><span class="tech-mark">⚛</span><small>React</small></div>
           <div class="tech-card node-card"><span class="node-mark">JS</span><small>Node.js</small></div>
