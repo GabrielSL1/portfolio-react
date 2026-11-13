@@ -24,4 +24,4 @@ O build de produção fica na pasta `dist/`.
 3. Crie um workflow de deploy para Vite ou use o template de GitHub Pages para Vite.
 4. Após o workflow terminar, o GitHub mostrará o endereço público em **Settings → Pages**.
 
-Observação: a imagem da logo do FlowPDF e a foto já estavam embutidas como data URI no HTML original, então são preservadas no conteúdo.
+As imagens atuais estão em `public/images/`. O monograma GL continua no lugar de uma fotografia pessoal. Para configurar a demonstração do FlowPDF e o endereço público, consulte [REFINAMENTOS.md](REFINAMENTOS.md).

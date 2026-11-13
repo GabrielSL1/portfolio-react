@@ -1,4 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import BackToTop from './BackToTop';
+import ProjectDemo from './ProjectDemo';
+import { flowPdfMedia } from './project-media';
 import { portfolioMarkup } from './portfolio-content';
 import { setupPortfolioInteractions } from './portfolio-interactions';
 import { setupHeroTypewriter } from './hero-typewriter';
@@ -7,6 +11,11 @@ import './App.css';
 
 export default function App() {
   const contentRef = useRef(null);
+  const [demoSlot, setDemoSlot] = useState(null);
+
+  useLayoutEffect(() => {
+    setDemoSlot(contentRef.current?.querySelector('[data-project-demo]') ?? null);
+  }, []);
 
   useEffect(() => setupPortfolioInteractions(contentRef.current), []);
   useEffect(() => setupHeroTypewriter(contentRef.current), []);
@@ -69,6 +78,10 @@ export default function App() {
   }, []);
 
   return (
-    <div ref={contentRef} className="portfolio-root" dangerouslySetInnerHTML={{ __html: portfolioMarkup }} />
+    <>
+      <div ref={contentRef} className="portfolio-root" dangerouslySetInnerHTML={{ __html: portfolioMarkup }} />
+      {demoSlot && createPortal(<ProjectDemo {...flowPdfMedia} key={flowPdfMedia.video} />, demoSlot)}
+      <BackToTop />
+    </>
   );
 }
